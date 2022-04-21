@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.tuple;
 
 
 class MovieRepositoryTest {
@@ -32,8 +34,12 @@ class MovieRepositoryTest {
     }
 
     @Test
-    void testDb(){
-       repository.saveMovie(new Movie(1L, "Titanic", LocalDate.of(1992, 11, 2), 121));
+    void testSaveMovie(){
+       Movie saved = repository.saveMovie(new Movie(1L, "Titanic", LocalDate.of(1992, 11, 2), 121));
+
+
+       assertThat(saved.getId()).isNotEqualTo(null);
+       assertThat(saved.getTitle()).isEqualTo("Titanic");
     }
 
 }
