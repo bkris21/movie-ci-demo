@@ -30,9 +30,6 @@ public class MovieRepository {
             ps.setInt(3, movie.getLength());
             return ps;
         }, keyHolder);
-        System.out.println("sg");
-        System.out.println("dsa");
-        System.out.println("dsaad");
         return new Movie(keyHolder.getKey().longValue(),movie.getTitle(),movie.getReleaseDate(),movie.getLength());
     }
 
