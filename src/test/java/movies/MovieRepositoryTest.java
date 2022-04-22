@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MovieRepositoryTest {
@@ -31,7 +32,12 @@ class MovieRepositoryTest {
 
     @Test
     void testSaveMovie(){
-        repository.saveMovie(new Movie("Titanic", LocalDate.of(2021,1,2),121));
+
+
+        Movie result = repository.saveMovie(new Movie("Titanic", LocalDate.of(2021,1,2),121));
+
+        assertThat(result.getId()).isNotEqualTo(null);
+        assertThat(result.getTitle()).isEqualTo("Titanic");
     }
 
 }
