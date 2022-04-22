@@ -30,6 +30,7 @@ public class MovieRepository {
             ps.setInt(3, movie.getLength());
             return ps;
         }, keyHolder);
+        System.out.println("dws");
         return new Movie(keyHolder.getKey().longValue(),movie.getTitle(),movie.getReleaseDate(),movie.getLength());
     }
 
